@@ -1,4 +1,4 @@
-/* ============================================ 
+/* ============================================
    Threads of Connection — Sample Stories Data
    File: threads-data.js
    ============================================ */
@@ -106,7 +106,7 @@ const sampleThreads = [
     preview:
       "My teenage daughter and I barely spoke for months. Then I decided to just listen...",
     content:
-      "My teenage daughter and I barely spoke for months. Then I decided to just listen—really listen, without judgment or advice. It was harder than I expected. But slowly, she began to open up. Sometimes the greatest gift we can give is our full attention."
+           "My teenage daughter and I barely spoke for months. Then I decided to just listen—really listen, without judgment or advice. It was harder than I expected. But slowly, she began to open up. Sometimes the greatest gift we can give is our full attention."
   },
   {
     id: 9,

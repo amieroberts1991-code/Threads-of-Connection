@@ -1,4 +1,4 @@
-/* ============================================ 
+/* ============================================
    Threads of Connection — Threads Page Logic
    File: threads.js (with auto geocoding)
    ============================================ */
@@ -39,7 +39,7 @@
   });
 
   // ------------------------------------------
-  // Navigation
+  // Navigation (fixed to use .active class)
   // ------------------------------------------
   function initNavigation() {
     const toggle = document.querySelector('.mobile-menu-toggle');
@@ -47,13 +47,24 @@
     if (!toggle || !navLinks) return;
 
     toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
 
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.main-nav')) {
+        toggle.classList.remove('active');
         navLinks.classList.remove('active');
       }
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
     });
   }
 
@@ -162,12 +173,15 @@
   }
 
   // ------------------------------------------
-  // Map Initialization
+  // Map Initialization (with mobile fix)
   // ------------------------------------------
   function initMap() {
     const el = document.getElementById('world-map');
     if (!el) return;
-    if (!(window.L && typeof L.map === 'function')) return;
+    if (!(window.L && typeof L.map === 'function')) {
+      console.warn('[Threads] Leaflet not found. Map will not render.');
+      return;
+    }
 
     try {
       STATE.map = L.map('world-map', {
@@ -184,7 +198,15 @@
 
       STATE.pinLayer = L.layerGroup().addTo(STATE.map);
 
-      setTimeout(() => STATE.map.invalidateSize(), 150);
+      // CRITICAL: Fix mobile map rendering
+      setTimeout(() => {
+        if (STATE.map) STATE.map.invalidateSize();
+      }, 300);
+
+      window.addEventListener('resize', () => {
+        if (STATE.map) STATE.map.invalidateSize();
+      });
+
     } catch (e) {
       console.error('[Threads] Map initialization error:', e);
     }
@@ -271,33 +293,6 @@
 
     return card;
   }
-/* ==== Mobile visibility + map height safety (Threads page) ==== */ 
-.page-threads #map,
-.page-threads .map,
-.page-threads .map-container {
-  width: 100%;
-  height: 50vh !important; /* visible portion of the screen */
-  min-height: 320px !important; /* ensure enough height on phones */
-  display: block !important;
-}
-
-/* Make sure parent wrappers don't hide the map on small screens */
-@media (max-width: 900px) {
-  .page-threads .map-section,
-  .page-threads .map-wrapper,
-  .page-threads .threads-section {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
-
-/* Safety: don't let page CSS wreck the nav on Threads */
-@media (max-width: 900px) {
-  .page-threads .content ul { list-style: disc; padding-left: 1.25rem; }
-  .page-threads .content a { display: inline !important; }
-}
-
 
   // ------------------------------------------
   // Map Pins
@@ -644,20 +639,20 @@
     if (Number.isNaN(d.getTime())) return dateString;
     const now = new Date();
     const diff = Math.abs(now - d);
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    const days = Math.ceil(diff / (1000 60 60 * 24));
 
     if (days === 0) return 'Today';
     if (days === 1) return 'Yesterday';
-    if (days < 7) return `${days} days ago`;
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); 
+    if (days < 7) return ${days} days ago;
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
   function toParagraphs(text) {
-  return escapeHTML(text)
-    .split(/\n{2,}|\r\n\r\n/)
-    .map(p => `<p>${p.replace(/\n|\r\n/g, '<br>')}</p>`)
-    .join('');
-}
+    return escapeHTML(text)
+      .split(/\n{2,}|\r\n\r\n/)
+      .map(p => <p>${p.replace(/\n|\r\n/g, '<br>')}</p>)
+      .join('');
+  }
 
   function escapeHTML(str) {
     return String(str)

@@ -1,28 +1,21 @@
-/* ============================================ 
-
+/* ============================================
    Threads of Connection — Threads Page Styles
-
    File: threads.css
-
-   Note: Global/nav styles come from css/styles.css
-
+   Note: Global/nav styles come from styles.css
    This file only styles the Threads page sections.
-
    ============================================ */
 
-
 /* Shared container for this page */
-.container {
+.page-threads .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-
 /* --------------------------------------------
    SPARKLING STARS
    -------------------------------------------- */
-.stars-container {
+.page-threads .stars-container {
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -30,20 +23,12 @@
   z-index: 1;
 }
 
-.star {
+.page-threads .star {
   position: absolute;
   background: white;
   clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
   );
   animation: sparkle-animation 3s ease-in-out infinite;
   opacity: 1;
@@ -60,88 +45,75 @@
   }
 }
 
-
 /* --------------------------------------------
    HERO (shorter banner + canvas background)
    -------------------------------------------- */
-.threads-hero {
-  position: relative; /* enable overlay and canvas layering */
+.page-threads .threads-hero {
+  position: relative;
   height: 60vh;
   min-height: 380px;
-  margin-top: 70px; /* fixed nav spacing */
+  margin-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: linear-gradient(180deg, #A33A5C 0%, #601630 100%) !important;
-  overflow: hidden; /* hide canvas overflow */
+  overflow: hidden;
 }
 
-/* Contrast overlay for better readability */
-.threads-hero::before {
+.page-threads .threads-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.22) 0%,
-    rgba(0, 0, 0, 0.38) 100%
-  );
+  background: linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.38) 100%);
 }
 
-#threads-canvas {
+.page-threads #threads-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* behind overlay + text */
+  z-index: 0;
 }
 
-.hero-content {
+.page-threads .hero-content {
   position: relative;
-  z-index: 2; /* above overlay */
+  z-index: 2;
   color: #ffffff;
   max-width: 800px;
   padding: 2rem;
 }
 
-/* Stronger readability on gradient + moving canvas */
-.hero-content h1,
-.hero-content p {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+.page-threads .hero-content h1,
+.page-threads .hero-content p {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
 }
 
-.hero-content h1 {
+.page-threads .hero-content h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4.5vw, 3.2rem);
   margin-bottom: 0.6rem;
   font-weight: 700;
 }
 
-.hero-content p {
+.page-threads .hero-content p {
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   letter-spacing: 0.2px;
   font-weight: 700;
-  color: #fff; /* ensure pure white text */
+  color: #fff;
 }
 
-/* Slightly lighter overlay on smaller screens if desired */
 @media (max-width: 768px) {
-  .threads-hero::before {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.18) 0%,
-      rgba(0, 0, 0, 0.34) 100%
-    );
+  .page-threads .threads-hero::before {
+    background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.34) 100%);
   }
 }
-
 
 /* --------------------------------------------
    SECTION TITLES
    -------------------------------------------- */
-.section-title {
+.page-threads .section-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.2rem);
   text-align: center;
@@ -149,40 +121,36 @@
   color: #2c3e50;
 }
 
-.section-subtitle {
+.page-threads .section-subtitle {
   text-align: center;
   color: #7f8c8d;
   margin-bottom: 2rem;
   font-size: 1rem;
 }
 
-
 /* --------------------------------------------
-   MAP SECTION (primary focus)
+   MAP SECTION
    -------------------------------------------- */
-.map-section {
+.page-threads .map-section {
   padding: 4rem 0 6rem;
-  background: #ecf0f1; /* soft light gray */
+  background: #ecf0f1;
 }
 
-.map-wrapper {
+.page-threads .map-wrapper {
   position: relative;
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-  /* IMPORTANT: give the map a fixed visible height */
   height: 600px;
   width: 100%;
 }
 
-#world-map {
+.page-threads #world-map {
   width: 100%;
   height: 100%;
 }
 
-/* Optional: Leaflet popup tweaks to match design */
 .leaflet-popup-content-wrapper {
   border-radius: 10px;
 }
@@ -199,26 +167,24 @@
   line-height: 1.45;
 }
 
-
 /* --------------------------------------------
-   FEATURED STORIES (simple, non-sticky)
+   FEATURED STORIES
    -------------------------------------------- */
-.featured-stories {
+.page-threads .featured-stories {
   padding: 6rem 0;
   background: #ffffff;
 }
 
-/* Simple search (NOT sticky, no overlay while scrolling) */
-.search-section {
+.page-threads .search-section {
   max-width: 620px;
   margin: 0 auto 2.25rem;
 }
 
-.search-wrapper {
+.page-threads .search-wrapper {
   position: relative;
 }
 
-.search-wrapper input {
+.page-threads .search-wrapper input {
   width: 100%;
   padding: 1rem 3rem 1rem 1rem;
   border: 2px solid #d4a5a5;
@@ -230,12 +196,12 @@
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.search-wrapper input:focus {
+.page-threads .search-wrapper input:focus {
   border-color: #d4a5a5;
-  box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.2);
+  box-shadow: 0 0 0 3px rgba(212,165,165,0.2);
 }
 
-.search-icon {
+.page-threads .search-icon {
   position: absolute;
   right: 1.1rem;
   top: 50%;
@@ -244,15 +210,14 @@
   pointer-events: none;
 }
 
-/* Stories grid (optional, will be populated by JS if data present) */
-.stories-grid {
+.page-threads .stories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.75rem;
   margin-top: 1rem;
 }
 
-.story-card {
+.page-threads .story-card {
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -261,47 +226,47 @@
   cursor: pointer;
 }
 
-.story-card:hover {
+.page-threads .story-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 26px rgba(0,0,0,0.12);
 }
 
-.story-header {
+.page-threads .story-header {
   padding: 1.25rem 1.25rem 1rem;
   background: #d4a5a5;
   color: #ffffff;
 }
 
-.story-theme {
+.page-threads .story-theme {
   display: inline-block;
   padding: 0.28rem 0.7rem;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255,255,255,0.22);
   border-radius: 20px;
   font-size: 0.85rem;
   margin-bottom: 0.45rem;
 }
 
-.story-title {
+.page-threads .story-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
   margin-bottom: 0.35rem;
 }
 
-.story-meta {
+.page-threads .story-meta {
   font-size: 0.9rem;
   opacity: 0.95;
 }
 
-.story-body {
+.page-threads .story-body {
   padding: 1.1rem 1.25rem 0.4rem;
 }
 
-.story-preview {
+.page-threads .story-preview {
   color: #34495e;
   line-height: 1.65;
 }
 
-.story-footer {
+.page-threads .story-footer {
   padding: 0.9rem 1.25rem 1.2rem;
   display: flex;
   justify-content: space-between;
@@ -311,30 +276,29 @@
   font-size: 0.95rem;
 }
 
-.story-location {
+.page-threads .story-location {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 70%;
 }
 
-.read-more {
+.page-threads .read-more {
   color: #d27f7f;
   font-weight: 700;
   text-decoration: none;
 }
 
-.read-more:hover {
+.page-threads .read-more:hover {
   color: #b87373;
 }
 
-/* Load More button (appears only if more stories exist) */
-.load-more-section {
+.page-threads .load-more-section {
   text-align: center;
   margin-top: 2rem;
 }
 
-.btn {
+.page-threads .btn {
   display: inline-block;
   padding: 0.95rem 1.7rem;
   border-radius: 999px;
@@ -345,35 +309,33 @@
   font-family: inherit;
 }
 
-.btn-primary {
+.page-threads .btn-primary {
   background: #d4a5a5;
   color: #fff;
 }
 
-.btn-primary:hover {
+.page-threads .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(212, 165, 165, 0.35);
+  box-shadow: 0 8px 18px rgba(212,165,165,0.35);
 }
 
-/* Empty state */
-.empty-state {
+.page-threads .empty-state {
   grid-column: 1 / -1;
   text-align: center;
   padding: 3rem 1rem;
   color: #7f8c8d;
 }
 
-.empty-state-icon {
+.page-threads .empty-state-icon {
   font-size: 2.5rem;
   margin-bottom: 0.6rem;
   opacity: 0.7;
 }
 
-
 /* --------------------------------------------
-   MODAL (viewing a full story)
+   MODAL
    -------------------------------------------- */
-.modal {
+.page-threads .modal {
   display: none;
   position: fixed;
   inset: 0;
@@ -383,13 +345,13 @@
   padding: 2rem;
 }
 
-.modal.active {
+.page-threads .modal.active {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal-content {
+.page-threads .modal-content {
   background: #ffffff;
   border-radius: 10px;
   max-width: 820px;
@@ -399,25 +361,25 @@
   position: relative;
 }
 
-.modal-header {
+.page-threads .modal-header {
   padding: 1.7rem 1.7rem 1.2rem;
   background: #d4a5a5;
   color: #ffffff;
   position: relative;
 }
 
-.modal-title {
+.page-threads .modal-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.4rem, 3.2vw, 1.8rem);
   margin-bottom: 0.35rem;
 }
 
-.modal-meta {
+.page-threads .modal-meta {
   font-size: 0.95rem;
   opacity: 0.96;
 }
 
-.modal-close {
+.page-threads .modal-close {
   position: absolute;
   top: 0.9rem;
   right: 0.9rem;
@@ -431,33 +393,32 @@
   cursor: pointer;
 }
 
-.modal-close:hover {
+.page-threads .modal-close:hover {
   background: rgba(255,255,255,0.36);
 }
 
-.modal-body {
+.page-threads .modal-body {
   padding: 1.5rem 1.7rem 2rem;
 }
 
-.modal-text {
+.page-threads .modal-text {
   color: #34495e;
   line-height: 1.8;
 }
 
-.modal-text p {
+.page-threads .modal-text p {
   margin-bottom: 1.1rem;
 }
 
-
 /* --------------------------------------------
-   SHARE YOUR STORY (section + modal form)
+   SHARE YOUR STORY
    -------------------------------------------- */
-.share-section {
+.page-threads .share-section {
   padding: 6rem 0;
   background: #ffffff;
 }
 
-.share-card {
+.page-threads .share-card {
   background: #f8f1f1;
   border: 2px solid #f0dede;
   border-radius: 12px;
@@ -465,7 +426,7 @@
   padding: 2rem;
 }
 
-.share-text .share-actions {
+.page-threads .share-actions {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
@@ -473,39 +434,38 @@
   margin-top: 1rem;
 }
 
-/* Outline button variant */
-.btn.btn-outline {
+.page-threads .btn.btn-outline {
   background: transparent;
   color: #d4a5a5;
   border: 2px solid #d4a5a5;
+  text-decoration: none;
 }
 
-.btn.btn-outline:hover {
+.page-threads .btn.btn-outline:hover {
   background: #fff2f2;
 }
 
-/* Share modal form */
-.share-form .form-row {
+.page-threads .share-form .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.share-form .form-group {
+.page-threads .share-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-.share-form label {
+.page-threads .share-form label {
   font-weight: 700;
   color: #2c3e50;
 }
 
-.share-form input,
-.share-form select,
-.share-form textarea {
+.page-threads .share-form input,
+.page-threads .share-form select,
+.page-threads .share-form textarea {
   width: 100%;
   padding: 0.85rem 0.95rem;
   border: 2px solid #e5cfcf;
@@ -517,55 +477,50 @@
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.share-form input:focus,
-.share-form select:focus,
-.share-form textarea:focus {
+.page-threads .share-form input:focus,
+.page-threads .share-form select:focus,
+.page-threads .share-form textarea:focus {
   border-color: #d4a5a5;
   box-shadow: 0 0 0 3px rgba(212,165,165,0.18);
 }
 
-.share-form textarea {
+.page-threads .share-form textarea {
   min-height: 160px;
   resize: vertical;
 }
 
-.share-form .char-count {
+.page-threads .share-form .char-count {
   text-align: right;
   font-size: 0.85rem;
   color: #7f8c8d;
   margin-top: 0.25rem;
 }
 
-.share-form .form-actions {
+.page-threads .share-form .form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.6rem;
   margin-top: 0.5rem;
 }
 
-.share-form .form-note {
+.page-threads .share-form .form-note {
   font-size: 0.85rem;
   color: #7f8c8d;
   margin-top: 0.7rem;
 }
 
-/* Reuse modal base for share modal (same .modal structure) */
-/* The share modal uses #share-modal with the same .modal styles */
-
-
 /* --------------------------------------------
    FOOTER WITH STARS
    -------------------------------------------- */
-.main-footer {
+.page-threads .main-footer {
   position: relative;
   background: linear-gradient(180deg, #A33A5C 0%, #601630 100%) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255,255,255,0.12);
   color: #ffffff;
   overflow: hidden;
 }
 
-/* Subtle contrast overlay to keep text readable on the rich gradient */
-.main-footer::before {
+.page-threads .main-footer::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -574,120 +529,88 @@
   background: linear-gradient(to top, rgba(0,0,0,0.22), rgba(0,0,0,0.06));
 }
 
-/* Ensure star layer sits above overlay but below text */
-.main-footer .stars-container {
- position: absolute;
+.page-threads .main-footer .stars-container {
+  position: absolute;
   z-index: 1;
-	
 }
 
-/* Text/content layers above */
-.main-footer p,
-.main-footer h3,
-.main-footer h4,
-.main-footer a,
-.main-footer .footer-content,
-.main-footer .footer-bottom {
+.page-threads .main-footer p,
+.page-threads .main-footer h3,
+.page-threads .main-footer h4,
+.page-threads .main-footer a,
+.page-threads .main-footer .footer-content,
+.page-threads .main-footer .footer-bottom {
   color: #ffffff !important;
   position: relative;
   z-index: 2;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); /* lift for legibility on gradient */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
   opacity: 1;
 }
 
-.main-footer a {
+.page-threads .main-footer a {
   color: #FFE3EC;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 227, 236, 0.35);
+  border-bottom: 1px solid rgba(255,227,236,0.35);
   transition: color 120ms ease, border-color 120ms ease;
 }
 
-.footer-section, .divfootercontent {
-  opacity: 1;
-  color: #ffffff
-}
-
-.main-footer a:hover,
-.main-footer a:focus-visible {
+.page-threads .main-footer a:hover,
+.page-threads .main-footer a:focus-visible {
   color: #FFD1E0 !important;
   border-bottom-color: #FFD1E0;
   outline: none;
   text-decoration: none;
 }
 
-/* If your footer has headings and small text */
-.main-footer h3,
-.main-footer h4 {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #ffffff !important;
-}
-
-
-
-.footer-links { 
-  list-style: none; 
+.page-threads .footer-links {
+  list-style: none;
   padding-left: 0;
   margin: 0.5rem 0 0 0;
   color: #ffffff !important;
-  
 }
 
-.footer-links li { 
+.page-threads .footer-links li {
   margin-bottom: var(--space-2, 0.5rem);
-  color: #ffffff !important; 
+  color: #ffffff !important;
 }
 
-/* Optional helper for a tagline if present */
-.footer-tagline {
-  color: rgba(255,255,255,0.92);
-}
-
-/* Optional: structure if your global CSS doesn't handle it.
-   This does NOT change layout dramatically—just basic spacing. */
-.main-footer .footer-content {
+.page-threads .main-footer .footer-content {
   padding: 2rem 1.5rem 1rem;
 }
 
-.main-footer .footer-bottom {
+.page-threads .main-footer .footer-bottom {
   padding: 0.75rem 1.5rem 1.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
-
-/* High-contrast users */
 @media (prefers-contrast: more) {
-  .main-footer p,
-  .main-footer h3,
-  .main-footer h4,
-  .main-footer a {
+  .page-threads .main-footer p,
+  .page-threads .main-footer h3,
+  .page-threads .main-footer h4,
+  .page-threads .main-footer a {
     text-shadow: none;
   }
-  .main-footer a {
+  .page-threads .main-footer a {
     border-bottom-color: #ffffff;
   }
 }
-
-
-
-
 
 /* --------------------------------------------
    RESPONSIVE
    -------------------------------------------- */
 @media (max-width: 992px) {
-  .map-wrapper { height: 520px; }
+  .page-threads .map-wrapper { height: 520px; }
 }
 
 @media (max-width: 768px) {
-  .threads-hero { min-height: 320px; }
-  .map-wrapper { height: 420px; }
-  .stories-grid { grid-template-columns: 1fr; }
-  .hero-content { padding: 1.25rem; }
-  .share-form .form-row { grid-template-columns: 1fr; }
+  .page-threads .threads-hero { min-height: 320px; }
+  .page-threads .map-wrapper { height: 420px; }
+  .page-threads .stories-grid { grid-template-columns: 1fr; }
+  .page-threads .hero-content { padding: 1.25rem; }
+  .page-threads .share-form .form-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
-  .map-wrapper { height: 320px; }
-  .modal-content { margin: 0.75rem; }
+  .page-threads .map-wrapper { height: 320px; }
+  .page-threads .modal-content { margin: 0.75rem; }
 }

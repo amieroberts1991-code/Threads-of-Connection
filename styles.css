@@ -789,80 +789,93 @@ img {
     animation-play-state: running;
 }
 
-
-
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
-/* Tablet */
+
+/* Tablet (and below) */
 @media (max-width: 768px) {
-    :root {
-        --nav-height: 70px;
-        --text-5xl: 2.5rem;
-        --text-4xl: 2rem;
-        --text-3xl: 1.75rem;
-        --text-2xl: 1.35rem;
-        --space-16: 4rem;
-        --space-12: 3rem;
-        --space-10: 2.5rem;
-    }
+  :root {
+    --nav-height: 70px;
+    --text-5xl: 2.5rem;
+    --text-4xl: 2rem;
+    --text-3xl: 1.75rem;
+    --text-2xl: 1.35rem;
+    --space-16: 4rem;
+    --space-12: 3rem;
+    --space-10: 2.5rem;
+  }
 
-    .mobile-menu-toggle { display: flex; }
+  /* Show hamburger on mobile */
+  .mobile-menu-toggle { display: flex; }
 
-    .nav-links {
-        position: fixed;
-        top: var(--nav-height);
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: var(--space-6);
-        box-shadow: var(--shadow-lg);
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: all var(--transition-base);
-        pointer-events: none;
-        gap: var(--space-4);
-    }
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-    }
-    .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+  /* Mobile nav panel (hidden by default) */
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform var(--transition-base), opacity var(--transition-base), visibility var(--transition-base);
+    z-index: 999;
+  }
 
-    .hero-title { font-size: var(--text-4xl); }
-    .hero-subtitle { font-size: var(--text-xl); }
+  /* When open (toggled via JS – using .active) */
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 
-    .hero-buttons { flex-direction: column; }
-    .hero-buttons .btn { width: 100%; }
+  /* Hamburger X animation */
+  .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+  .hero-title { font-size: var(--text-4xl); }
+  .hero-subtitle { font-size: var(--text-xl); }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { width: 100%; }
 }
-/* ==== Mobile visibility + map height safety (Threads page) ==== */ 
-.page-threads #map,
-.page-threads .map,
-.page-threads .map-container {
-  width: 100%;
-  height: 50vh !important; /* visible portion of the screen */
-  min-height: 320px !important; /* ensure enough height on phones */
-  display: block !important;
-}
 
-/* Make sure parent wrappers don't hide the map on small screens */
+/* Mobile map visibility + height safety (Threads page) */
 @media (max-width: 900px) {
-  .page-threads .map-section,
-  .page-threads .map-wrapper,
-  .page-threads .threads-section {
+  .page-threads #world-map,
+  .page-threads .map-wrapper {
+    width: 100% !important;
+    height: 420px !important;
+    min-height: 320px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
   }
-}
 
-/* Safety: don't let page CSS wreck the nav on Threads */
-@media (max-width: 900px) {
+  /* Make sure parent wrappers don't hide the map */
+  .page-threads .map-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Safety: don't let page CSS wreck the nav */
   .page-threads .content ul { list-style: disc; padding-left: 1.25rem; }
   .page-threads .content a { display: inline !important; }
 }
+
+@media (max-width: 480px) {
+  .page-threads #world-map,
+  .page-threads .map-wrapper {
+    height: 320px !important;
+  }
+}
+
 
