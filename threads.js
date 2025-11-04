@@ -645,6 +645,7 @@ function formatDate(dateString) {
   if (days === 1) return 'Yesterday';
   if (days < 7) return `${days} days ago`;
 
+  // IMPORTANT: use 'en-US' (string) and normal quotes, not backticks
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
@@ -654,6 +655,8 @@ function toParagraphs(text) {
     .map(p => `<p>${p.replace(/\n|\r\n/g, '<br>')}</p>`)
     .join('');
 }
+
+
 
  
   function escapeHTML(str) {
