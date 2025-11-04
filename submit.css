@@ -1,0 +1,232 @@
+/* ============================================ 
+   Threads of Connection — Submit Page Styles
+   File: submit.css
+   Note: Global/nav styles come from css/styles.css
+   This file styles only the submit page sections.
+   ============================================ */
+
+/* Container reused on this page */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --------------------------------------------
+   HERO (short clean banner)
+   -------------------------------------------- */
+.submit-hero {
+  margin-top: 70px; /* account for fixed nav */
+  background: linear-gradient(135deg, #d4a5a5 0%, #c48b8b 100%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  min-height: 38vh;
+  text-align: center;
+}
+
+.submit-hero-inner {
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.submit-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+.submit-hero p {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  opacity: 0.95;
+}
+
+/* --------------------------------------------
+   SUBMIT SECTION + CARD
+   -------------------------------------------- */
+.submit-section {
+  padding: 4.5rem 0 6rem;
+  background: #ffffff;
+}
+
+.submit-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid #f0dede;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+  text-align: center;
+  margin-bottom: 0.4rem;
+  color: #2c3e50;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------
+   FORM
+   -------------------------------------------- */
+#full-submit-form {
+  display: block;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.form-group .help-text {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.group-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #e5cfcf;
+  border-radius: 8px;
+  font: inherit;
+  color: #34495e;
+  background: #fff;
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #d4a5a5;
+  box-shadow: 0 0 0 3px rgba(212,165,165,0.18);
+}
+
+textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+.char-hint {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-top: 0.25rem;
+}
+
+.form-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+
+/* Buttons (use global classes, ensure outline variant exists) */
+.btn {
+  display: inline-block;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #d4a5a5;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(212,165,165,0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #d4a5a5;
+  border: 2px solid #d4a5a5;
+}
+
+.btn-outline:hover {
+  background: #fff2f2;
+}
+
+/* Form feedback */
+.form-message {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.form-message.show {
+  display: block;
+}
+
+.form-message.success {
+  background: #eefaf0;
+  border: 2px solid #2ecc71;
+  color: #2e7d32;
+}
+
+.form-message.error {
+  background: #fdecea;
+  border: 2px solid #e74c3c;
+  color: #a93226;
+}
+
+/* --------------------------------------------
+   RESPONSIVE
+   -------------------------------------------- */
+@media (max-width: 992px) {
+  .submit-hero { min-height: 34vh; }
+}
+
+@media (max-width: 768px) {
+  .submit-hero { min-height: 30vh; }
+  .form-row { grid-template-columns: 1fr; }
+  .group-2col { grid-template-columns: 1fr; }
+}

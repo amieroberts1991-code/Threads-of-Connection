@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Take Action — Threads of Connection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+  <!-- Global styles (nav/typography) -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Page styles -->
+  <link rel="stylesheet" href="actions.css" />
+ 
+  <!-- Optional: Fonts to match other pages if not already global -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation (same structure as other pages) -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Threads of Connection</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="threads.html">Threads</a></li>
+        <li><a class="active" href="actions.html">Actions</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+ 
+  <!-- Hero with animated canvas + floating orbs -->
+  <header class="actions-hero">
+    <canvas id="actions-canvas" aria-hidden="true"></canvas>
+    <!-- Floating orbs animation -->
+    <div class="orbs-container" id="hero-orbs"></div>
+    <div class="actions-hero-inner">
+      <h1>Take Action</h1>
+      <p>Small steps create big change. Pick one and start today.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#act-now">See Ways to Help</a>
+        <a class="btn btn-outline" href="#volunteer">Volunteer</a>
+      </div>
+    </div>
+  </header>
+ 
+  <!-- Ways to Take Action -->
+  <section class="actions-section" id="act-now">
+    <div class="container">
+      <h2 class="section-title">Ways to Take Action</h2>
+      <p class="section-subtitle">Choose one (or more!) and make an impact</p>
+ 
+      <div class="actions-grid">
+        <article class="action-card">
+          <div class="action-icon">🧵</div>
+          <h3>Share Your Story</h3>
+          <p>Your voice can connect and heal. Share a real moment from your life.</p>
+          <div class="action-cta">
+            <a href="threads.html#stories-grid" class="btn btn-outline">Browse Stories</a>
+            <a href="submit.html" class="btn btn-primary">Submit a Story</a>
+          </div>
+        </article>
+ 
+        <article class="action-card">
+          <div class="action-icon">🗺️</div>
+          <h3>Pin Your Place</h3>
+          <p>Add your city to the map by including latitude and longitude in your story.</p>
+          <button class="btn btn-primary" data-open-modal="coords-help">How to Add Coordinates</button>
+        </article>
+ 
+        <article class="action-card">
+          <div class="action-icon">🤝</div>
+          <h3>Become an Ambassador</h3>
+          <p>Host a story circle or help collect stories in your community.</p>
+          <button class="btn btn-primary" data-open-modal="ambassador-modal">I'm Interested</button>
+        </article>
+ 
+        <article class="action-card">
+          <div class="action-icon">🌍</div>
+          <h3>Start a Local Circle</h3>
+          <p>Gather friends, neighbors, or coworkers to share and listen.</p>
+          <button class="btn btn-primary" data-open-modal="circle-modal">Get the Guide</button>
+        </article>
+ 
+        <article class="action-card">
+          <div class="action-icon">📝</div>
+          <h3>Translation Volunteers</h3>
+          <p>Help stories cross language barriers with community translations.</p>
+          <button class="btn btn-primary" data-open-modal="translation-modal">Volunteer</button>
+        </article>
+ 
+        <article class="action-card">
+          <div class="action-icon">📣</div>
+          <h3>Spread the Word</h3>
+          <p>Share the project with your network and invite others to contribute.</p>
+          <button class="btn btn-outline" data-open-modal="share-modal">Share Toolkit</button>
+        </article>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Impact Stats -->
+  <section class="impact-section">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-item">
+          <div class="impact-number" data-target="stories">0</div>
+          <div class="impact-label">Stories Shared</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number" data-target="volunteers">0</div>
+          <div class="impact-label">Volunteers</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number" data-target="events">0</div>
+          <div class="impact-label">Community Events</div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Upcoming Events -->
+  <section class="events-section" id="events">
+    <div class="container">
+      <h2 class="section-title">Upcoming Events</h2>
+      <p class="section-subtitle">Join a circle, training, or local gathering</p>
+ 
+      <div class="events-list" id="events-list">
+        <article class="event-card">
+          <div class="event-date">
+            <span class="event-day">12</span>
+            <span class="event-month">Nov</span>
+          </div>
+          <div class="event-body">
+            <h3 class="event-title">Online Story Circle</h3>
+            <p class="event-meta">Zoom • 6:00–7:30 PM</p>
+            <p class="event-desc">A welcoming space to share and listen. No experience required.</p>
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="Online Story Circle">RSVP</button>
+          </div>
+        </article>
+ 
+        <article class="event-card">
+          <div class="event-date">
+            <span class="event-day">23</span>
+            <span class="event-month">Nov</span>
+          </div>
+          <div class="event-body">
+            <h3 class="event-title">Host Training: How to Hold a Circle</h3>
+            <p class="event-meta">Hybrid (Portland + Zoom) • 10:00–12:00</p>
+            <p class="event-desc">Learn simple structure, safety practices, and facilitation basics.</p>
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="Host Training">RSVP</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Volunteer CTA -->
+  <section class="volunteer-section" id="volunteer">
+    <div class="container">
+      <div class="volunteer-card">
+        <div class="volunteer-text">
+          <h2 class="section-title">Volunteer With Us</h2>
+          <p class="section-subtitle">Tell us how you'd like to help — we'll reach out with next steps.</p>
+        </div>
+        <div class="volunteer-actions">
+          <button class="btn btn-primary" data-open-modal="volunteer-modal">Sign Up</button>
+          <a class="btn btn-outline" href="#act-now">See More Ways</a>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Resources / Toolkit -->
+  <section class="resources-section" id="resources">
+    <div class="container">
+      <h2 class="section-title">Resources & Toolkit</h2>
+      <p class="section-subtitle">Simple guides to help you get started</p>
+ 
+      <div class="resources-grid">
+        <a class="resource-card" href="toolkits/story-circle-guide.pdf" download>
+          <div class="resource-icon">📘</div>
+          <h3>Story Circle Guide (PDF)</h3>
+          <p>Step-by-step format + safety tips</p>
+        </a>
+        <a class="resource-card" href="toolkits/ambassador-brief.pdf" download>
+          <div class="resource-icon">🧭</div>
+          <h3>Ambassador Brief (PDF)</h3>
+          <p>Role overview + outreach ideas</p>
+        </a>
+        <a class="resource-card" href="toolkits/sharing-toolkit.pdf" download>
+          <div class="resource-icon">🗣️</div>
+          <h3>Sharing Toolkit (PDF)</h3>
+          <p>Social posts + flyer templates</p>
+        </a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <h2 class="section-title">Stay in the Loop</h2>
+        <p class="section-subtitle">Occasional updates — no spam, promise.</p>
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" required />
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+        <div class="newsletter-message" id="newsletter-message" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Modals -->
+  <div class="modal" id="volunteer-modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">Volunteer Sign-Up</h2>
+        <div class="modal-meta">Tell us a little bit about you</div>
+      </div>
+      <div class="modal-body">
+        <form id="volunteer-form" class="volunteer-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vol-name">Full Name *</label>
+              <input id="vol-name" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="vol-email">Email *</label>
+              <input id="vol-email" type="email" required placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vol-interests">How would you like to help?</label>
+            <select id="vol-interests">
+              <option>Story collecting</option>
+              <option>Hosting circles</option>
+              <option>Translations</option>
+              <option>Outreach / Social</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="vol-notes">Anything else we should know?</label>
+            <textarea id="vol-notes" rows="5" placeholder="Optional"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+          <div class="form-message" id="volunteer-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="modal" id="rsvp-modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">RSVP</h2>
+        <div class="modal-meta" id="rsvp-event-name">Event</div>
+      </div>
+      <div class="modal-body">
+        <form id="rsvp-form" class="volunteer-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rsvp-name">Full Name *</label>
+              <input id="rsvp-name" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="rsvp-email">Email *</label>
+              <input id="rsvp-email" type="email" required placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary">RSVP</button>
+          </div>
+          <div class="form-message" id="rsvp-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="modal" id="coords-help" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">How to Add Coordinates</h2>
+      </div>
+      <div class="modal-body">
+        <p>To put a pin on the map, include latitude and longitude when you submit your story.</p>
+        <ol>
+          <li>Open Google Maps and find your city.</li>
+          <li>Right-click on the map and copy the coordinates (e.g., 45.5152, -122.6784).</li>
+          <li>Paste them in the Latitude and Longitude fields in the story form.</li>
+        </ol>
+        <p>That's it — your story will show as a map pin.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="modal" id="ambassador-modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">Community Ambassador</h2>
+      </div>
+      <div class="modal-body">
+        <p>Ambassadors help collect stories, host circles, and spread the word locally.</p>
+        <p>Interested? Use the Volunteer Sign-Up and select "Story collecting" or "Hosting circles".</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="modal" id="circle-modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">Start a Local Circle</h2>
+      </div>
+      <div class="modal-body">
+        <p>Circles are simple: welcome, prompts, sharing, gratitude. Download the guide from Resources to get started.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="modal" id="translation-modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">Translation Volunteers</h2>
+      </div>
+      <div class="modal-body">
+        <p>We welcome volunteer translators for Spanish, French, Arabic, Japanese, and more.</p>
+        <p>Use the Volunteer Sign-Up and select "Translations".</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="modal" id="share-modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">Share Toolkit</h2>
+      </div>
+      <div class="modal-body">
+        <p>Copy this link and share it with your community:</p>
+        <pre class="share-link" id="share-link">https://your-domain.com/threads.html</pre>
+        <button class="btn btn-primary" id="copy-share-link">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer" aria-label="Footer">
+    <!-- Floating orbs animation -->
+    <div class="orbs-container" id="footer-orbs"></div>
+
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Threads of Connection</h3>
+        <p>Weaving humanity together through empathy and shared stories.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="threads.html">Threads</a></li>
+          <li><a href="actions.html">Actions</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="mailto:threadsofconnection25@gmail.com">threadsofconnection25@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Threads of Connection. All rights reserved.</p>
+      <p class="footer-tagline">We are not separate. We never were.</p>
+    </div>
+  </footer>
+ 
+  <!-- Page logic -->
+  <script src="actions.js"></script>
+</body>
+</html>

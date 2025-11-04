@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Share Your Story — Threads of Connection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Global styles (same nav/typography as home) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Submit page styles -->
+  <link rel="stylesheet" href="submit.css" />
+</head>
+<body>
+  <!-- Navigation (same as home/threads) -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Threads of Connection</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="threads.html">Threads</a></li>
+        <li><a href="actions.html">Actions</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero (short banner) -->
+  <header class="submit-hero">
+    <div class="submit-hero-inner">
+      <h1>Share Your Story</h1>
+      <p>Your words can connect, heal, and inspire.</p>
+    </div>
+  </header>
+
+  <!-- Submit Form -->
+  <main class="submit-section">
+    <div class="container">
+      <div class="submit-card">
+        <h2 class="section-title">We’d love to hear from you</h2>
+        <p class="section-subtitle">Please fill out the form below. Required fields are marked with *</p>
+
+        <form id="full-submit-form" novalidate>
+          <!-- Title + Theme -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fs-title">Title *</label>
+              <input id="fs-title" name="title" type="text" maxlength="100" placeholder="A short title" required />
+              <div class="char-hint"><span id="fs-title-count">0</span>/100</div>
+            </div>
+
+            <div class="form-group">
+              <label for="fs-theme">Theme *</label>
+              <select id="fs-theme" name="theme" required>
+                <option value="">Choose a theme...</option>
+                <option>Connection</option>
+                <option>Healing</option>
+                <option>Cultural</option>
+                <option>Hope</option>
+                <option>Creative</option>
+                <option>Reflection</option>
+                <option>Kindness</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Author + Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fs-author">Your Name *</label>
+              <input id="fs-author" name="author" type="text" placeholder="How should we credit you?" required />
+            </div>
+
+            <div class="form-group">
+              <label for="fs-email">Email *</label>
+              <input id="fs-email" name="email" type="email" placeholder="you@example.com" required />
+              <small class="help-text">We’ll only contact you about your submission.</small>
+            </div>
+          </div>
+
+          <!-- Location + Coordinates -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fs-location">Location</label>
+              <input id="fs-location" name="location" type="text" placeholder="City, Country (e.g., Portland, USA)" />
+            </div>
+
+            <div class="form-group group-2col">
+              <div>
+                <label for="fs-lat">Latitude (optional)</label>
+                <input id="fs-lat" name="lat" type="number" step="any" placeholder="e.g., 45.5152" />
+              </div>
+              <div>
+                <label for="fs-lng">Longitude (optional)</label>
+                <input id="fs-lng" name="lng" type="number" step="any" placeholder="-122.6784" />
+              </div>
+              <small class="help-text">Pins show on the map only if latitude and longitude are provided.</small>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="form-group">
+            <label for="fs-content">Your Story *</label>
+            <textarea id="fs-content" name="content" rows="10" maxlength="2000" placeholder="Share your experience (min 50 characters)" required></textarea>
+            <div class="char-hint"><span id="fs-content-count">0</span>/2000</div>
+          </div>
+
+          <!-- Consent -->
+          <div class="form-group form-consent">
+            <input id="fs-consent" type="checkbox" required />
+            <label for="fs-consent">
+              I give permission for my story to be shared and understand that submissions are moderated for safety.
+            </label>
+          </div>
+
+          <!-- Actions -->
+          <div class="form-actions">
+            <a href="threads.html" class="btn btn-outline">Back to Threads</a>
+            <button type="submit" class="btn btn-primary" id="fs-submit-btn">Submit Story</button>
+          </div>
+
+          <div class="form-message" id="fs-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Threads of Connection</h3>
+        <p>Weaving humanity together through empathy and shared stories.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+       <li></li> <a href="threads.html">Threads</a></li>
+        <li></li><a href="actions.html">Actions</a></li>
+        <li></li><a href="community.html">Community</a></li>
+        <li> <a href="get-involved.html">Get Involved</a></li>
+        </ul>
+
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="mailto:threadsofconnection25@gmail.com">threadsofconnection25@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Threads of Connection. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Submit page logic -->
+  <script src="submit.js"></script>
+</body>
+</html>

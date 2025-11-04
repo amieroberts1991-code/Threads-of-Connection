@@ -1,0 +1,358 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community — Threads of Connection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="community.css">
+</head>
+<body>
+  <!-- Pink Hearts (full viewport) -->
+  <div class="hearts-container" id="hearts-container"></div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Threads of Connection</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threads.html">Threads</a></li>
+        <li><a href="community.html" class="active">Community</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Canvas Animation -->
+  <section class="community-hero">
+    <canvas id="community-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title">Join Our Community</h1>
+      <p class="hero-subtitle">Connect with kindred spirits around the world</p>
+    </div>
+  </section>
+
+  <!-- Featured Events -->
+  <section class="featured-events-section">
+    <div class="container">
+      <h2 class="section-title">Featured Events</h2>
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-badge">Virtual</div>
+          <h3 class="event-title">Global Connection Circle</h3>
+          <p class="event-meta">Every Monday • 7:00 PM EST</p>
+          <p class="event-desc">Join women from around the world for an hour of authentic connection and shared wisdom.</p>
+          <div class="event-actions">
+            <button class="btn btn-primary" data-open-modal="rsvp-modal" data-event="Global Connection Circle">RSVP</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-badge">In-Person</div>
+          <h3 class="event-title">Seattle Gathering</h3>
+          <p class="event-meta">March 15 • 6:00 PM PST</p>
+          <p class="event-desc">An intimate evening of conversation, reflection, and connection at a local café.</p>
+          <div class="event-actions">
+            <button class="btn btn-primary" data-open-modal="rsvp-modal" data-event="Seattle Gathering">RSVP</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-badge">Workshop</div>
+          <h3 class="event-title">Storytelling Workshop</h3>
+          <p class="event-meta">March 22 • 2:00 PM EST</p>
+          <p class="event-desc">Learn the art of crafting and sharing your personal stories in a supportive environment.</p>
+          <div class="event-actions">
+            <button class="btn btn-primary" data-open-modal="rsvp-modal" data-event="Storytelling Workshop">RSVP</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Circle Directory -->
+  <section class="circle-directory-section">
+    <div class="container">
+      <h2 class="section-title">Community Circles</h2>
+      <p class="section-subtitle">Find or start a local circle in your area</p>
+
+      <div class="search-bar">
+        <input type="text" id="circle-search" placeholder="Search by city, format, or topic..." aria-label="Search circles">
+        <button id="clear-circle-search" class="btn btn-outline" aria-label="Clear search">Clear</button>
+        <button class="btn btn-primary" data-open-modal="start-circle-modal">Start a Circle</button>
+      </div>
+
+      <div class="circles-grid" id="circles-grid">
+        <article class="circle-card" data-city="New York" data-tags="in-person monthly">
+          <div class="circle-badge">In-Person</div>
+          <h3 class="circle-title">New York City Circle</h3>
+          <p class="circle-meta">New York, NY • Monthly</p>
+          <p class="circle-desc">Monthly gathering for women in NYC to share stories, support, and sisterhood over coffee.</p>
+          <div class="circle-actions">
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="New York City Circle">RSVP</button>
+            <button class="btn btn-primary" data-open-modal="contact-host-modal" data-host="Sarah Chen">Contact Host</button>
+          </div>
+        </article>
+
+        <article class="circle-card" data-city="Los Angeles" data-tags="in-person weekly">
+          <div class="circle-badge">In-Person</div>
+          <h3 class="circle-title">LA Beach Walkers</h3>
+          <p class="circle-meta">Los Angeles, CA • Weekly</p>
+          <p class="circle-desc">Walk, talk, and connect along the beautiful LA coastline every Saturday morning.</p>
+          <div class="circle-actions">
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="LA Beach Walkers">RSVP</button>
+            <button class="btn btn-primary" data-open-modal="contact-host-modal" data-host="Maria Rodriguez">Contact Host</button>
+          </div>
+        </article>
+
+        <article class="circle-card" data-city="London" data-tags="virtual bi-weekly">
+          <div class="circle-badge">Virtual</div>
+          <h3 class="circle-title">London Virtual Circle</h3>
+          <p class="circle-meta">London, UK • Bi-weekly</p>
+          <p class="circle-desc">Connect with London-based women online for meaningful conversations and mutual support.</p>
+          <div class="circle-actions">
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="London Virtual Circle">RSVP</button>
+            <button class="btn btn-primary" data-open-modal="contact-host-modal" data-host="Emma Thompson">Contact Host</button>
+          </div>
+        </article>
+
+        <article class="circle-card" data-city="Austin" data-tags="in-person monthly">
+          <div class="circle-badge">In-Person</div>
+          <h3 class="circle-title">Austin Creative Circle</h3>
+          <p class="circle-meta">Austin, TX • Monthly</p>
+          <p class="circle-desc">A gathering for creative women to share their work, dreams, and challenges.</p>
+          <div class="circle-actions">
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="Austin Creative Circle">RSVP</button>
+            <button class="btn btn-primary" data-open-modal="contact-host-modal" data-host="Jessica Miller">Contact Host</button>
+          </div>
+        </article>
+
+        <article class="circle-card" data-city="Toronto" data-tags="hybrid weekly">
+          <div class="circle-badge">Hybrid</div>
+          <h3 class="circle-title">Toronto Book Club</h3>
+          <p class="circle-meta">Toronto, ON • Weekly</p>
+          <p class="circle-desc">Explore meaningful literature and life lessons together, both in-person and online.</p>
+          <div class="circle-actions">
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="Toronto Book Club">RSVP</button>
+            <button class="btn btn-primary" data-open-modal="contact-host-modal" data-host="Priya Patel">Contact Host</button>
+          </div>
+        </article>
+
+        <article class="circle-card" data-city="Sydney" data-tags="in-person monthly">
+          <div class="circle-badge">In-Person</div>
+          <h3 class="circle-title">Sydney Sisterhood</h3>
+          <p class="circle-meta">Sydney, AU • Monthly</p>
+          <p class="circle-desc">Monthly brunch gatherings for deep conversations and lasting friendships.</p>
+          <div class="circle-actions">
+            <button class="btn btn-outline" data-open-modal="rsvp-modal" data-event="Sydney Sisterhood">RSVP</button>
+            <button class="btn btn-primary" data-open-modal="contact-host-modal" data-host="Sophie Williams">Contact Host</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Highlights -->
+  <section class="highlights-section">
+    <div class="container">
+      <h2 class="section-title">Community Voices</h2>
+      <div class="highlights-grid">
+        <blockquote class="highlight">
+          "This community has given me the courage to share my story and embrace my authentic self."
+          <cite>— Maya, Seattle Circle</cite>
+        </blockquote>
+        <blockquote class="highlight">
+          "I've found my tribe. These women truly understand and support each other."
+          <cite>— Rachel, Virtual Circle</cite>
+        </blockquote>
+        <blockquote class="highlight">
+          "Every gathering reminds me that I'm not alone in my journey. We're all connected."
+          <cite>— Aisha, Toronto Circle</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="partners-section">
+    <div class="container">
+      <h2 class="section-title">Our Partners</h2>
+      <div class="partners-grid">
+        <div class="partner-card">Women's Wellness Network</div>
+        <div class="partner-card">Global Sisterhood Alliance</div>
+        <div class="partner-card">Connected Hearts Foundation</div>
+        <div class="partner-card">Circle of Change</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join the Community -->
+  <section class="join-section">
+    <div class="container">
+      <div class="join-card">
+        <h2 class="section-title">Join Our Community</h2>
+        <p>Stay connected with upcoming events, new circles, and community stories.</p>
+        <form id="join-form" class="join-form">
+          <input type="text" id="join-name" placeholder="Your Name" required>
+          <input type="email" id="join-email" placeholder="Your Email" required>
+          <input type="text" id="join-city" placeholder="Your City (optional)">
+          <button type="submit" class="btn btn-primary">Join Now</button>
+        </form>
+        <p id="join-message" class="join-message"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Modal -->
+  <div id="rsvp-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="rsvp-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="rsvp-modal-title" class="modal-title">RSVP for <span id="rsvp-event-name">Event</span></h2>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="rsvp-form" class="modal-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rsvp-name">Name *</label>
+              <input type="text" id="rsvp-name" required>
+            </div>
+            <div class="form-group">
+              <label for="rsvp-email">Email *</label>
+              <input type="email" id="rsvp-email" required>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary">Confirm RSVP</button>
+          </div>
+          <div id="rsvp-message" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Host Modal -->
+  <div id="contact-host-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="contact-host-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="contact-host-modal-title" class="modal-title">Contact <span id="contact-host-name">Host</span></h2>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="contact-host-form" class="modal-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ch-name">Your Name *</label>
+              <input type="text" id="ch-name" required>
+            </div>
+            <div class="form-group">
+              <label for="ch-email">Your Email *</label>
+              <input type="email" id="ch-email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ch-message">Message</label>
+            <textarea id="ch-message" rows="5" placeholder="Tell the host why you'd like to connect..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+          <div id="contact-host-message" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Circle Modal -->
+  <div id="start-circle-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="start-circle-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="start-circle-modal-title" class="modal-title">Start a Community Circle</h2>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="start-circle-form" class="modal-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sc-name">Your Name *</label>
+              <input type="text" id="sc-name" required>
+            </div>
+            <div class="form-group">
+              <label for="sc-email">Your Email *</label>
+              <input type="email" id="sc-email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sc-city">City/Location *</label>
+              <input type="text" id="sc-city" required>
+            </div>
+            <div class="form-group">
+              <label for="sc-format">Format *</label>
+              <select id="sc-format" required>
+                <option value="In-Person">In-Person</option>
+                <option value="Virtual">Virtual</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sc-notes">Tell us about your vision for this circle</label>
+            <textarea id="sc-notes" rows="5" placeholder="What topics, activities, or themes would you like to explore?"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+          </div>
+          <div id="start-circle-message" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Threads of Connection</h3>
+        <p>Weaving stories, building community, celebrating the bonds that unite us.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="threads.html">Threads</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+          <li><a href="#" aria-label="Twitter">Twitter</a></li>
+          <li><a href="mailto:hello@threadsofconnection.com">Email Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Threads of Connection. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="community.js"></script>
+</body>
+</html>
