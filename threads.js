@@ -631,29 +631,31 @@
       t = setTimeout(() => fn.apply(this, args), wait);
     };
   }
+function formatDate(dateString) { 
+  if (!dateString) return '';
 
-  function formatDate(dateString) {
-    if (!dateString) return '';
+  const d = new Date(dateString);
+  if (Number.isNaN(d.getTime())) return dateString;
 
-    const d = new Date(dateString);
-    if (Number.isNaN(d.getTime())) return dateString;
-    const now = new Date();
-    const diff = Math.abs(now - d);
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  const now = new Date();
+  const diff = Math.abs(now - d);
+  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
 
-    if (days === 0) return 'Today';
-    if (days === 1) return 'Yesterday';
-    if (days < 7) return '${days} days ago';
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  }
+  if (days === 0) return 'Today';
+  if (days === 1) return 'Yesterday';
+  if (days < 7) return `${days} days ago`;
 
-  function toParagraphs(text) {
-    return escapeHTML(text)
-      .split(/\n{2,}|\r\n\r\n/)
-      .map(p => <p>${p.replace(/\n|\r\n/g, '<br>')}</p>)
-      .join('');
-  }
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 
+function toParagraphs(text) {
+  return escapeHTML(text)
+    .split(/\n{2,}|\r\n\r\n/) // split on blank lines
+    .map(p => `<p>${p.replace(/\n|\r\n/g, '<br>')}</p>`)
+    .join('');
+}
+
+ 
   function escapeHTML(str) {
     return String(str)
       .replaceAll('&', '&amp;')
