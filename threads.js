@@ -639,7 +639,7 @@
     if (Number.isNaN(d.getTime())) return dateString;
     const now = new Date();
     const diff = Math.abs(now - d);
-    const days = Math.ceil(diff / (1000 60 60 * 24));
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
 
     if (days === 0) return 'Today';
     if (days === 1) return 'Yesterday';
