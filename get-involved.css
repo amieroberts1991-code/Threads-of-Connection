@@ -827,6 +827,31 @@ color: #ffffff;
     border-bottom-color: #ffffff;
   }
 }
+/* ==== Get Involved footer: full-width and shorter ==== */ 
+.page-involved .main-footer {
+  /* Full-bleed background even if nested inside a centered wrapper */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  /* Make it shorter */
+  padding: 1.5rem 0 1rem !important; /* adjust as you like */
+  min-height: 0 !important; /* override any global min-height */
+}
+
+/* Keep the inner content centered and constrained */
+.page-involved .main-footer .footer-content,
+.page-involved .main-footer .footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Fix a small typo so padding applies correctly */
+.page-involved .main-footer .footer-content {
+  padding: 0.75rem 1.5rem 1.75rem;
+}
+
 /* ============================================
    ANIMATIONS
    ============================================ */
