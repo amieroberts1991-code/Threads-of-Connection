@@ -704,6 +704,25 @@ h1, h2, h3, h4 {
   color: var(--involved-text-light);
   line-height: 1.7;
 }
+/* ===== Social cards (coming soon state) ===== */ 
+.page-involved .social-card.is-disabled {
+  pointer-events: none; /* not clickable */
+  opacity: 0.65;
+  filter: grayscale(0.2);
+  cursor: default;
+}
+.page-involved .social-card.is-disabled h3,
+.page-involved .social-card.is-disabled p {
+  user-select: none;
+}
+
+/* optional: visual consistency for the grid */
+.page-involved .social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
 
 /* ============================================
    FOOTER
