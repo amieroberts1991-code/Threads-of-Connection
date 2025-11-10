@@ -324,11 +324,12 @@ img {
 .hero,
 .footer {
     position: relative;
-    min-height: 70vh; /* Changed from 100vh to 70vh */
+    min-height: 50vh; /* Changed from 70vh to 50vh */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: var(--nav-height);
+    padding-top: space-8;
+   padding-bottom: space-4;
     overflow: hidden;
 }
 
@@ -339,7 +340,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 50%;
     z-index: 1;
 }
 
@@ -347,7 +348,7 @@ img {
 #threads-canvas, 
 .footer {
     width: 100%;
-    height: 100%;
+    height: 50%;
     display: block;
     position: absolute;
     top: 0;
@@ -362,7 +363,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 50%;
     background: linear-gradient(
         45deg,
         transparent 30%,
@@ -672,8 +673,8 @@ img {
     overflow: hidden !important;
     background: #F5F1E8 !important; /* Cream background - forced */
     color: #2C4A2C !important; /* Dark text */
-    padding: var(--space-8) 0 var(--space-4) !important; /* Reduced from space-12 and space-6 */
-    min-height: 300px !important; /* Reduced from 400px */
+    padding: var(--space-6) 0 var(--space-2) !important; /* Reduced from space-12 and space-6 */
+    min-height: 200px !important; /* Reduced from 400px */
 }
 
 
@@ -682,13 +683,13 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 50%;
     z-index: 0;
 }
 
 #footer-canvas {
     width: 100%;
-    height: 100%;
+    height: 50%;
     display: block;
     position: absolute;
     top: 0;
