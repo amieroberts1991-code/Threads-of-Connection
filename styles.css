@@ -318,19 +318,20 @@ img {
     transition: all var(--transition-base);
 }
 
-/* ============================================
+/* ============================================ 
    HERO SECTION
    ============================================ */
 .hero,
 .footer {
     position: relative;
-    min-height: 100vh;
+    min-height: 70vh; /* Changed from 100vh to 70vh */
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: var(--nav-height);
     overflow: hidden;
 }
+
 
 .hero-background,
 .footer {
@@ -662,7 +663,7 @@ img {
     transform: translateY(-3px) scale(1.05);
 }
 
-/* ============================================ 
+/* ============================================
    FOOTER
    ============================================ */
 
@@ -671,9 +672,10 @@ img {
     overflow: hidden !important;
     background: #F5F1E8 !important; /* Cream background - forced */
     color: #2C4A2C !important; /* Dark text */
-    padding: var(--space-12) 0 var(--space-6) !important;
-    min-height: 400px !important;
+    padding: var(--space-8) 0 var(--space-4) !important; /* Reduced from space-12 and space-6 */
+    min-height: 300px !important; /* Reduced from 400px */
 }
+
 
 .footer-background {
     position: absolute;
@@ -792,7 +794,6 @@ img {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
-
 /* Tablet (and below) */
 @media (max-width: 768px) {
   :root {
@@ -806,8 +807,23 @@ img {
     --space-10: 2.5rem;
   }
 
+  /* Shorter hero on mobile */
+  .hero {
+    min-height: 60vh;
+  }
+
+  /* Shorter footer on mobile */
+  .main-footer {
+    min-height: auto !important;
+    padding: var(--space-6) 0 var(--space-4) !important;
+  }
+
   /* Show hamburger on mobile */
   .mobile-menu-toggle { display: flex; }
+
+  /* ... rest of your mobile styles ... */
+}
+
 
   /* Mobile nav panel (hidden by default) */
   .nav-links {
