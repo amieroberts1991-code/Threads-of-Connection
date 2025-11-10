@@ -482,7 +482,36 @@ z-index: 0;
 /* ============================================
    MANIFESTO SECTION
    ============================================ */
-.manifesto-section {
+.manifesto-section {<section id="manifesto" class="manifesto-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Foundation</span>
+        <h2 class="section-title" style="position: relative;">The Manifesto<span style="position: absolute; left: 99.4777%; top: 84.2247%; font-size: 13.4741px; opacity: 1; pointer-events: none; transition: 1s ease-out; z-index: 10; transform: translateY(-20px);">✨</span></h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="manifesto-content fade-in visible">
+        <div class="manifesto-intro">
+          <p class="large-text">We are the threads - each of us a strand in the great weave of humanity. Different in color, in texture, in story - yet meant to be intertwined. For too long we've mistaken separation for strength, competition for progress, and silence for peace. But beneath the noise, a deeper truth has been calling to us: we were never meant to unravel.</p>
+        </div>
+
+        <div class="manifesto-body">
+          <p>Threads of Connection is not a movement built on politics, profit, or power. It is a remembrance - a return to what has always bound us together: empathy, understanding, and the invisible fabric of love that pulses through every living being. We believe that the distance between "us" and "them" is an illusion - one that can be mended when we choose to see each other not as strangers, but as reflections of the same essence.</p>
+
+          <p>Our mission is simple, yet radical: to weave unity through awareness, kindness, and shared action. To speak with intention. To listen without armor. To meet difference not with fear, but with curiosity. Every act of compassion, every bridge between hearts, strengthens the tapestry of our world. We refuse the narrative that division is inevitable. We choose connection - again and again - even when it's uncomfortable, even when it means unlearning, even when it means standing alone until others remember too.</p>
+
+          <p>Connection is not weakness. It is resilience. It is the quiet power that softens what is hardened and heals what is torn. We are the storytellers, the healers, the dreamers, the bridge builders. We are those who dare to imagine a world where unity is not a slogan, but a living practice. A world where humanity's diversity is celebrated, not feared - where the threads of every voice, every belief, every background, are woven into a pattern of wholeness.</p>
+
+          <p>Threads of Connection is a call to those who feel the pull - to those who know that love, empathy, and awareness are not naive ideals but necessary forces for transformation. It is a call to reimagine what "together" truly means. To lift the veil between hearts. To repair the fabric of humanity - one thread at a time. We are not separate. We never were. And now, we remember. Together, we weave. Together, we rise.</p>
+        </div>
+
+        <div class="manifesto-signature">
+          <div class="signature-line"></div>
+          <p class="signature-text">We are Threads of Connection</p>
+        </div>
+      </div>
+    </div>
+  </section>
     margin-top: 60vh;
     padding: var(--space-16) 0;
     background: var(--color-background-alt);
