@@ -483,6 +483,9 @@ z-index: 0;
    MANIFESTO SECTION
    ============================================ */
 .manifesto-section {
+    position: relative;
+    z-index: 1;
+    margin-top: 70vh;
     padding: var(--space-16) 0;
     background: var(--color-background-alt);
 }
