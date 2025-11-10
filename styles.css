@@ -483,9 +483,7 @@ z-index: 0;
    MANIFESTO SECTION
    ============================================ */
 .manifesto-section {
-    position: relative;
-    z-index: 1;
-    margin-top: 70vh;
+    margin-top: 60vh;
     padding: var(--space-16) 0;
     background: var(--color-background-alt);
 }
@@ -690,7 +688,7 @@ z-index: 0;
     background: #F5F1E8 !important; /* Cream background - forced */
     color: #2C4A2C !important; /* Dark text */
     padding: var(--space-8) 0 var(--space-4) !important; /* Reduced from space-12 and space-6 */
-    min-height: 100px !important; /* Reduced from 400px */
+    min-height: 200px !important; /* Reduced from 400px */
 }
 
 
