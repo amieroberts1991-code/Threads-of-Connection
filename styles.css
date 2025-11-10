@@ -435,7 +435,7 @@ img {
 }
 
 .scroll-indicator {
-    position: fixed;
+    position: absolute;
     bottom: var(--space-8);
     left: 50%;
     transform: translateX(-50%);
