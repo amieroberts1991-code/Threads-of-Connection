@@ -321,32 +321,21 @@ img {
 /* ============================================ 
    HERO SECTION
    ============================================ */
-.hero {
-position: relative !important;
-top: 0;
-left: 0;
-width: 100%;
-height: auto;
-min-height: auto !important;
-margin-bottom: 0 !important;
-display: flex;
-align-items: center;
-justify-content: center;
-padding-top: var(--nav-height);
-padding-bottom: var(--space-8) !important;
-overflow: hidden;
-z-index: 0;
-}
 
 .hero,
 .footer {
-    position: relative;
-    min-height: 70vh; /* Changed from 100vh to 70vh */
+    position: relative !important;
+    width: 100%;
+    height: auto;
+    min-height: auto !important; 
+    margin-bottom: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: var(--nav-height);
+padding-bottom: var(--space-8) !important;
     overflow: hidden;
+z-index: 0;
 }
 
 
