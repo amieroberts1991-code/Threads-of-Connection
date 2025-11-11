@@ -313,7 +313,8 @@ align-items: stretch;
 }
 
 .resource-card {
-  display: grid;
+  display: flex
+flex-direction: row;
 gap: 12px;
   background: #fff;
   border-radius: 14px;
@@ -327,7 +328,8 @@ gap: 12px;
 
 .resource-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+border-color: #eadfce;
 }
 
 .resource-icon { font-size: 1.6rem; }
@@ -335,14 +337,15 @@ gap: 12px;
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
   color: var(--color-dark, #2c3e50);
-margin: 0.35rem 0 0.2rem;
+width: 44px;
+height: 44px;
+border-radius: 10px;
+background: #fde7ef;
+display: grid;
+place-items: center;
 }
-.resource-card p {
-   color: var(--color-text, #34495e); line-height: 1.6;
-}
-.resources-grid .resource-card: last-child {
-   grid-column: auto;
-}
+.resource-card p { color: var(--color-text, #34495e); line-height: 1.6; }
+
 /* --------------------------------------------
    NEWSLETTER
    -------------------------------------------- */
@@ -684,6 +687,165 @@ color: #ffffff;
   .actions-hero { min-height: 38vh; }
   .modal-content { margin: 0.75rem; }
 }
+/* -------------------------------------------- 
+   BUTTON COLOR FIXES - ALL GOLD
+   -------------------------------------------- */
 
+.btn-primary {
+  background: #D4AF37 !important; /* Gold */
+  color: #fff !important;
+}
 
+.btn-primary:hover {
+  background: #B8941F !important; /* Darker gold */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(212, 175, 55, 0.35);
+}
+
+.btn-outline {
+  background: transparent !important;
+  color: #D4AF37 !important; /* Gold text */
+  border: 2px solid #D4AF37 !important;
+}
+
+.btn-outline:hover {
+  background: #D4AF37 !important;
+  color: #fff !important;
+}
+
+/* Hero buttons on gradient - keep white outline */
+.actions-hero .btn-outline {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* --------------------------------------------
+   VOLUNTEER SECTION - MATCH IMPACT GRADIENT
+   -------------------------------------------- */
+
+.volunteer-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--color-primary, #d4a5a5) 0%, var(--color-secondary, #c48b8b) 100%) !important;
+}
+
+.volunteer-card {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+  color: #ffffff !important;
+}
+
+.volunteer-card .section-title,
+.volunteer-card .section-subtitle {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------
+   RESOURCES - FIX LAYOUT & CENTER TEXT
+   -------------------------------------------- */
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center; /* Center text */
+  gap: 0.75rem;
+  background: #fff;
+  border-radius: 14px;
+  border: 2px solid #f0dede; /* Match action cards */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary, #d4a5a5);
+}
+
+.resource-card .resource-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fde7ef, #f8e8f0);
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+}
+
+.resource-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--color-dark, #2c3e50);
+  margin: 0;
+  width: 100%;
+}
+
+.resource-card p {
+  color: var(--color-text, #34495e);
+  line-height: 1.6;
+  margin: 0;
+  width: 100%;
+}
+
+/* --------------------------------------------
+   FOOTER - EVEN MORE COMPACT
+   -------------------------------------------- */
+
+.main-footer {
+  padding: 1rem 0 0.75rem !important;
+  min-height: auto !important;
+}
+
+.main-footer .footer-content {
+  padding: 0.75rem 1.5rem 0.25rem !important;
+  gap: 1.25rem !important;
+}
+
+.main-footer .footer-section h3,
+.main-footer .footer-section h4 {
+  font-size: 1rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.main-footer .footer-section p {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.3rem !important;
+  line-height: 1.4 !important;
+}
+
+.main-footer .footer-links {
+  margin: 0.15rem 0 0 0 !important;
+}
+
+.main-footer .footer-links li {
+  margin-bottom: 0.25rem !important;
+  font-size: 0.85rem !important;
+}
+
+.main-footer .footer-bottom {
+  padding: 0.6rem 1.5rem 0.75rem !important;
+  margin-top: 0.3rem !important;
+}
+
+.main-footer .footer-bottom p {
+  font-size: 0.8rem !important;
+  margin-bottom: 0.2rem !important;
+}
+
+.main-footer .footer-tagline {
+  font-size: 0.8rem !important;
+  margin-top: 0.2rem !important;
+}
 
