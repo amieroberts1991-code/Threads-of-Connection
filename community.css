@@ -809,3 +809,88 @@ button {
   .join-form { flex-direction: column; align-items: stretch; }
   .join-form input { width: 100%; }
 }
+
+/* ============================================ 
+   MOBILE: keep nav visible at top-right (no dropdown)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide hamburger */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  /* Keep nav links visible, aligned right */
+  .nav-container {
+    align-items: center;
+  }
+  .nav-links {
+    display: flex !important; /* force visible */
+    position: static !important; /* no slide-down panel */
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: auto; /* push group to right */
+    gap: 0.75rem; /* tighter spacing for mobile */
+    flex-wrap: nowrap; /* single row */
+    white-space: nowrap; /* avoid wrapping */
+    overflow-x: auto; /* let it scroll if needed */
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Optional: hide scrollbar */
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links { scrollbar-width: none; }
+
+  .nav-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   MOBILE: hero text truly centered
+   ============================================ */
+@media (max-width: 768px) {
+  .community-hero .hero-content {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    justify-content: center; /* center vertically within its space */
+    gap: 0.35rem;
+  }
+}
+
+/* ============================================
+   MOBILE FOOTER: show only Quick Links + Contact (side-by-side) + footer bottom
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide the first footer section (brand/description) */
+  .footer-content .footer-section:first-child {
+    display: none !important;
+  }
+
+  /* Two-column layout for the remaining two sections */
+  .footer-content {
+    display: grid;
+    grid-template-areas: "links connect";
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.25rem;
+    text-align: left;
+    margin-bottom: 0.75rem; /* tighter spacing above footer-bottom */
+  }
+
+  /* Map the remaining sections */
+  .footer-content .footer-section:nth-child(2) { grid-area: links; } /* Quick Links */
+  .footer-content .footer-section:nth-child(3) { grid-area: connect; } /* Connect */
+
+  /* Compact footer spacing */
+  .main-footer {
+    padding: 1rem 1rem 0.75rem;
+  }
+  .footer-bottom {
+    padding-top: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+

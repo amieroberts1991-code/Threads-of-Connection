@@ -909,3 +909,47 @@ z-index: 0;
     height: 320px !important;
   }
 }
+
+/* ============================================ 
+   HOME FOOTER (mobile): brand on top, 2 columns below
+   ============================================ */
+@media (max-width: 768px) {
+  .home .main-footer .footer-content {
+    display: grid !important;
+    grid-template-areas:
+      "brand brand"
+      "links connect";
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 1rem 1.25rem;
+    text-align: left;
+  }
+
+  /* Map sections to areas (assumes order: brand, links, connect) */
+  .home .main-footer .footer-section:nth-child(1) { grid-area: brand; }
+  .home .main-footer .footer-section:nth-child(2) { grid-area: links; }
+  .home .main-footer .footer-section:nth-child(3) { grid-area: connect; }
+
+  .home .main-footer .footer-section h3,
+  .home .main-footer .footer-section h4 {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .home .main-footer .footer-section p,
+  .home .main-footer .footer-links li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+
+  /* Compact spacing for the mobile footer */
+  .home .main-footer {
+    padding: 1rem 1rem 0.75rem !important;
+  }
+
+  .home .main-footer .footer-bottom {
+    padding-top: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+

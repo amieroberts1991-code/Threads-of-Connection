@@ -616,3 +616,54 @@ padding: 0 !important;
   .page-threads .map-wrapper { height: 320px; }
   .page-threads .modal-content { margin: 0.75rem; }
 }
+
+/* ============================================ 
+   MOBILE NAV (Home + Threads): keep links visible top-right
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide hamburger; use visible right-aligned nav row */
+  .home .mobile-menu-toggle,
+  .page-threads .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  .home .nav-container,
+  .page-threads .nav-container {
+    align-items: center;
+  }
+
+  .home .nav-links,
+  .page-threads .nav-links {
+    display: flex !important; /* keep visible */
+    position: static !important; /* no dropdown panel */
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: auto; /* push to the right */
+    gap: 0.75rem; /* tighter spacing for mobile */
+    flex-wrap: nowrap; /* single line */
+    white-space: nowrap; /* prevent wrapping */
+    overflow-x: auto; /* allow side-scroll if links overflow */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optional: hide scrollbar visuals */
+  .home .nav-links::-webkit-scrollbar,
+  .page-threads .nav-links::-webkit-scrollbar { display: none; }
+  .home .nav-links,
+  .page-threads .nav-links { scrollbar-width: none; }
+
+  .home .nav-links a,
+  .page-threads .nav-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Make sure nav sits above hero canvases */
+  .home .main-nav,
+  .page-threads .main-nav {
+    z-index: 2000;
+    padding: 0.75rem 0;
+  }
+}
+

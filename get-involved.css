@@ -1163,3 +1163,89 @@ details:focus {
   white-space: nowrap;
   border: 0;
 }
+
+/* ============================================ 
+   NAV ALWAYS VISIBLE (top-right) ON MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide hamburger on mobile */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  /* Keep nav visible as a right-aligned row */
+  .nav-container {
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex !important; /* force visible */
+    position: static !important; /* no dropdown panel */
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: auto; /* push to the right */
+    gap: 0.75rem; /* tighter spacing for mobile */
+    flex-wrap: nowrap; /* single line */
+    white-space: nowrap; /* prevent wrapping */
+    overflow-x: auto; /* allow side-scroll if too many links */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  }
+
+  /* Optional: hide the horizontal scrollbar (visual) */
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links { scrollbar-width: none; }
+
+  .nav-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   HERO: ensure text truly centered on mobile
+   ============================================ */
+@media (max-width: 768px) {
+  .community-hero .hero-content {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    justify-content: center; /* center vertically relative to content box */
+    gap: 0.35rem;
+  }
+}
+
+/* ============================================================
+   FOOTER (mobile): Quick Links and Contact side-by-side
+   ============================================================ */
+@media (max-width: 768px) {
+  .footer-content {
+    display: grid;
+    grid-template-areas:
+      "brand brand"
+      "links connect"; /* two columns on the same row */
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.25rem;
+    text-align: left;
+  }
+
+  /* Brand/description full width on top */
+  .footer-content .footer-section:nth-child(1) { grid-area: brand; }
+
+  /* Quick Links column */
+  .footer-content .footer-section:nth-child(2) { grid-area: links; }
+
+  /* Contact column */
+  .footer-content .footer-section:nth-child(3) { grid-area: connect; }
+
+  /* Tighter footer spacing on mobile */
+  .main-footer {
+    padding: 1.25rem 1rem 0.75rem;
+  }
+  .footer-bottom {
+    padding-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

@@ -929,3 +929,78 @@ color: #ffffff;
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* ============================================ 
+   ACTIONS (mobile): keep nav visible at top-right
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide hamburger on Actions mobile; keep links visible */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  /* Force nav links to show (override earlier debug CSS) */
+  .nav-links {
+    display: flex !important; /* Keep visible */
+    position: static !important; /* No dropdown panel */
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: auto; /* push to right */
+    gap: 0.75rem; /* tighter spacing */
+    flex-wrap: nowrap; /* single row */
+    white-space: nowrap; /* avoid wrap */
+    overflow-x: auto; /* allow side-scroll if too many links */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optional: hide horizontal scrollbar visuals */
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links { scrollbar-width: none; }
+
+  .nav-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Make sure nav sits above hero canvas/ornaments */
+  .main-nav {
+    z-index: 2000;
+    padding: 0.75rem 0;
+  }
+}
+
+/* ============================================
+   ACTIONS (mobile): footer 2 columns (Quick Links + Contact only)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide the brand/description section (first block) on mobile */
+  .main-footer .footer-content .footer-section:first-child {
+    display: none !important;
+  }
+
+  /* Two columns for the remaining sections */
+  .main-footer .footer-content {
+    display: grid !important;
+    grid-template-areas: "links connect";
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.25rem;
+    text-align: left;
+    padding: 0.75rem 1rem 0.5rem !important; /* tighter */
+    margin: 0 auto 0.5rem !important;
+  }
+
+  /* Map the remaining sections */
+  .main-footer .footer-section:nth-child(2) { grid-area: links; } /* Quick Links */
+  .main-footer .footer-section:nth-child(3) { grid-area: connect; } /* Contact */
+
+  /* Compact footer bottom */
+  .main-footer {
+    padding: 1rem 1rem 0.75rem !important;
+  }
+  .main-footer .footer-bottom {
+    padding: 0.6rem 1rem 0.8rem !important;
+    font-size: 0.9rem;
+  }
+}
+
