@@ -9,9 +9,9 @@
   --community-accent: #7e57c2;
   --community-light: #f3e5f5;
   --community-border: #e1bee7;
-  --community-text: #4a4a4a;
-  --community-text-light: #757575;
-  --community-dark: #2c2c2c;
+  --community-text: #ff0000; /* CHANGED TO BRIGHT RED */
+  --community-text-light: #ff0000; /* CHANGED TO BRIGHT RED */
+  --community-dark: #ff0000; /* CHANGED TO BRIGHT RED */
   --community-focus: rgba(155, 89, 182, 0.3);
 }
 
@@ -291,7 +291,7 @@ button {
 }
 
 /* --------------------------------------------
-   FEATURED EVENTS
+   FEATURED EVENTS - BIGGER CONTAINERS
    -------------------------------------------- */
 .featured-events-section {
   padding: 4.5rem 0 6rem;
@@ -300,8 +300,8 @@ button {
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* INCREASED from 300px */
+  gap: 2.5rem; /* INCREASED from 2rem */
 }
 
 .event-card {
@@ -309,9 +309,12 @@ button {
   border-radius: 12px;
   border: 2px solid var(--community-border);
   box-shadow: 0 8px 22px rgba(0,0,0,0.06);
-  padding: 1.5rem;
+  padding: 2rem; /* INCREASED from 1.5rem */
+  min-height: 320px; /* ADDED minimum height */
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .event-card:hover {
@@ -333,31 +336,34 @@ button {
 }
 
 .event-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
+  font-size: 1.6rem; /* INCREASED from 1.5rem */
+  margin-bottom: 0.8rem; /* INCREASED spacing */
   color: var(--community-dark);
+  margin-top: 0.5rem; /* Added space from badge */
 }
 
 .event-meta {
   font-size: 0.95rem;
   color: var(--community-text-light);
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem; /* INCREASED from 0.8rem */
   font-weight: 500;
 }
 
 .event-desc {
   color: var(--community-text);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
+  line-height: 1.8; /* INCREASED from 1.7 */
+  margin-bottom: 1.5rem; /* INCREASED from 1.2rem */
+  flex-grow: 1; /* Push actions to bottom */
 }
 
 .event-actions {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.8rem; /* INCREASED from 0.6rem */
+  margin-top: auto;
 }
 
 /* --------------------------------------------
-   CIRCLE DIRECTORY
+   CIRCLE DIRECTORY - BIGGER CONTAINERS
    -------------------------------------------- */
 .circle-directory-section {
   padding: 4.5rem 0 6rem;
@@ -391,8 +397,8 @@ button {
 
 .circles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* INCREASED from 320px */
+  gap: 2.5rem; /* INCREASED from 1.8rem */
 }
 
 .circle-card {
@@ -400,9 +406,12 @@ button {
   border-radius: 12px;
   border: 2px solid var(--community-border);
   box-shadow: 0 8px 22px rgba(0,0,0,0.06);
-  padding: 1.5rem;
+  padding: 2rem; /* INCREASED from 1.5rem */
+  min-height: 340px; /* ADDED minimum height */
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .circle-card:hover {
@@ -424,28 +433,31 @@ button {
 }
 
 .circle-title{
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
+  font-size: 1.6rem; /* INCREASED from 1.5rem */
+  margin-bottom: 0.8rem; /* INCREASED spacing */
   color: var(--community-dark);
+  margin-top: 0.5rem; /* Added space from badge */
 }
 
 .circle-meta {
   font-size: 0.95rem;
   color: var(--community-text-light);
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem; /* INCREASED from 0.8rem */
   font-weight: 500;
 }
 
 .circle-desc {
   color: var(--community-text);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
+  line-height: 1.8; /* INCREASED from 1.7 */
+  margin-bottom: 1.5rem; /* INCREASED from 1.2rem */
+  flex-grow: 1; /* Push actions to bottom */
 }
 
 .circle-actions {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.8rem; /* INCREASED from 0.6rem */
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 /* --------------------------------------------
@@ -480,11 +492,11 @@ button {
 }
 
 /* --------------------------------------------
-   PARTNERS
+   PARTNERS - SAME BACKGROUND AS COMMUNITY CIRCLES
    -------------------------------------------- */
 .partners-section {
   padding: 4.5rem 0 6rem;
-  background: #f6f1ff;
+  background: var(--community-light); /* CHANGED from #f6f1ff to match circles */
 }
 
 .partners-grid {
@@ -724,6 +736,7 @@ button {
   font-family: 'Playfair Display', serif;
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
+  color: #ffffff; /* Keep footer headings white */
 }
 
 .footer-section p,
@@ -781,6 +794,14 @@ button {
   .modal-form .form-row { grid-template-columns: 1fr; }
   .footer-content { grid-template-columns: 1fr; text-align: center; }
   .event-actions, .circle-actions { flex-direction: column; }
+  
+  /* Maintain larger containers on mobile */
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+  .circles-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
