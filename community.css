@@ -930,5 +930,12 @@ color: rgba(255, 0, 0, 1) !important;
 background: linear-gradient(135deg, #e8d5f2 0%, #d4b5e8 50%, #c8a5e0 100%); !important;
 }
 
+div.footer-section {
+color: rgba(255, 0, 0, 1) !important;
+}
+
+div.footer-bottom {
+color: rgba(255, 0, 0, 1) !important;
+}
 
 
