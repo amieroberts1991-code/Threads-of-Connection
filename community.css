@@ -260,14 +260,14 @@ button {
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
-  color: #ffffff;
+  color: rgba(255, 0, 0, 1);
   text-shadow: 0 4px 12px rgba(0,0,0,0.2);
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  color: rgba(255,255,255,0.95);
+  color: rgba(255, 0, 0, 0.95);
   text-shadow: 0 2px 8px rgba(0,0,0,0.15);
   font-weight: 300;
 }
@@ -714,8 +714,8 @@ button {
    -------------------------------------------- */
 .main-footer {
   position: relative;
-  background: linear-gradient(135deg, var(--community-primary) 0%, var(--community-secondary) 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #e8d5f2 0%, #d4b5e8 50%, #c8a5e0 100%);
+  color: rgba(255, 0, 0, 1);
   padding: 3rem 2rem 1.5rem;
   overflow: hidden;
 }
@@ -735,13 +735,13 @@ button {
 .footer-section h4 {
   font-family: 'Playfair Display', serif;
   margin-bottom: 0.8rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #ffffff; /* Keep footer headings white */
 }
 
 .footer-section p,
 .footer-section a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 0, 0, 1);
   line-height: 1.6;
   text-decoration: none;
 }
@@ -761,13 +761,13 @@ button {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 0, 0, 1);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: #ffffff;
+  color: rgba(255, 0, 0, 1);
   text-decoration: underline;
 }
 
@@ -778,7 +778,7 @@ button {
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 0, 0, 1);
 }
 
 /* --------------------------------------------
