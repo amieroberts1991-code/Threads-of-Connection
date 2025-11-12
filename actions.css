@@ -1004,3 +1004,33 @@ color: #ffffff;
   }
 }
 
+/* MOBILE NAV: always visible top-right on Actions */ 
+@media (max-width: 768px) {
+  .mobile-menu-toggle { display: none !important; }
+
+  .nav-container { align-items: center; }
+
+  .nav-links {
+    display: flex !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: auto;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links { scrollbar-width: none; }
+
+  .nav-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .main-nav { z-index: 2000; padding: 0.75rem 0; }
+}
+

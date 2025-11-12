@@ -953,3 +953,33 @@ z-index: 0;
   }
 }
 
+/* MOBILE NAV: always visible top-right on Threads */ 
+@media (max-width: 768px) {
+  .page-threads .mobile-menu-toggle { display: none !important; }
+
+  .page-threads .nav-container { align-items: center; }
+
+  .page-threads .nav-links {
+    display: flex !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: auto;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto; /* scroll if needed */
+    -webkit-overflow-scrolling: touch;
+  }
+  .page-threads .nav-links::-webkit-scrollbar { display: none; }
+  .page-threads .nav-links { scrollbar-width: none; }
+
+  .page-threads .nav-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .page-threads .main-nav { z-index: 2000; padding: 0.75rem 0; }
+}
+
