@@ -925,4 +925,10 @@ button {
   .main-nav { z-index: 2000; padding: 0.75rem 0; }
 }
 
+footer.main-footer {
+color: rgba(255, 0, 0, 1) !important;
+background: linear-gradient(135deg, #e8d5f2 0%, #d4b5e8 50%, #c8a5e0 100%); !important;
+}
+
+
 
