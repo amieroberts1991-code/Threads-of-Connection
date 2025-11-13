@@ -136,7 +136,7 @@
   // create based on logical pixel size (adjust counts for small screens if desired)
   this.createThreads();
   this.createParticles();
-});
+}
             }
         }
 
