@@ -119,7 +119,7 @@
             window.addEventListener('resize', debounce(() => this.resize(), 250));
         }
 
-       resize() {
+      resize() {
   const ratio = window.devicePixelRatio || 1;
   const w = this.canvas.clientWidth || this.canvas.offsetWidth;
   const h = this.canvas.clientHeight || this.canvas.offsetHeight;
@@ -133,29 +133,32 @@
   this.threads = [];
   this.particles = [];
 
-  // create based on logical pixel size (adjust counts for small screens if desired)
+  // create based on logical pixel size
   this.createThreads();
   this.createParticles();
 }
-            }
-        }
 
-        createParticles() {
-            const numParticles = 30;
-           
-            for (let i = 0; i < numParticles; i++) {
-                this.particles.push({
-                    x: Math.random() * this.canvas.width,
-                    y: Math.random() * this.canvas.height,
-                    size: 1 + Math.random() * 3,
-                    speedX: (Math.random() - 0.5) * 0.5,
-                    speedY: (Math.random() - 0.5) * 0.5,
-                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
-                    opacity: 0.3 + Math.random() * 0.7
-                });
-            }
-        }
+createParticles() {
+  if (!this.canvas || !this.particles) return;
 
+  const ratio = window.devicePixelRatio || 1;
+  // use logical (CSS) sizes so positions match what you see
+  const logicalWidth = Math.round(this.canvas.width / ratio);
+  const logicalHeight = Math.round(this.canvas.height / ratio);
+
+  const numParticles = 30;
+  for (let i = 0; i < numParticles; i++) {
+    this.particles.push({
+      x: Math.random() * logicalWidth,
+      y: Math.random() * logicalHeight,
+      size: 1 + Math.random() * 3,
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5,
+      color: this.colors[Math.floor(Math.random() * this.colors.length)],
+      opacity: 0.3 + Math.random() * 0.7
+    });
+  }
+}
         drawThread(thread, time) {
             this.ctx.beginPath();
             this.ctx.strokeStyle = thread.color;
