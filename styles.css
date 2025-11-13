@@ -983,3 +983,53 @@ z-index: 0;
   .page-threads .main-nav { z-index: 2000; padding: 0.75rem 0; }
 }
 
+/* canvas targets (distinct) */
+#threads-canvas,
+#footer-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* shimmer between canvas and content */
+.shimmer-overlay { z-index: 1; pointer-events: none; }
+
+/* hero content above shimmer */
+.hero-content { z-index: 2; }
+
+/* keep footer background color and ensure content sits above shimmer */
+.main-footer { background: #F5F1E8 !important; }
+.footer-inner { z-index: 2; position: relative; }
+
+/* hide footer canvas if you prefer CSS-only removal (optional) */
+#footer-canvas { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; }
+
+/* stronger, darker and bolder footer copy */
+.footer-section p,
+.footer-links a,
+.footer-links li,
+.footer-bottom p {
+  color: #21321F !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+}
+
+/* preserve footer header color and weight */
+.footer-section h3,
+.footer-section h4 {
+  color: #2C4A2C !important;
+  font-weight: 700 !important;
+}
+
+/* keyboard focus outlines */
+.main-footer a:focus,
+.footer-links a:focus,
+.btn:focus {
+  outline: 3px solid rgba(212,174,55,0.25);
+  outline-offset: 3px;
+}

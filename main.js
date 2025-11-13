@@ -55,6 +55,7 @@
             });
 
             document.addEventListener('click', (e) => {
+		if (!this.toggle) return;
                 if (!e.target.closest('.main-nav')) {
                     this.closeMenu();
                 }
@@ -72,18 +73,19 @@
             this.navLinks.classList.toggle('active');
            
             const isExpanded = this.navLinks.classList.contains('active');
-            this.toggle.setAttribute('aria-expanded', isExpanded);
+            this.toggle.setAttribute('aria-expanded', String(isExpanded));
            
             document.body.style.overflow = isExpanded ? 'hidden' : '';
         }
 
-        closeMenu() {
-            this.toggle.classList.remove('active');
-            this.navLinks.classList.remove('active');
-            this.toggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-    }
+     closeMenu() {
+  if (this.toggle) this.toggle.classList.remove('active');
+  if (this.navLinks) this.navLinks.classList.remove('active');
+  if (this.toggle) this.toggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+}
+   
 
     // ============================================
     // ANIMATED THREADS CANVAS (HERO)
@@ -117,25 +119,24 @@
             window.addEventListener('resize', debounce(() => this.resize(), 250));
         }
 
-        resize() {
-            this.canvas.width = this.canvas.offsetWidth;
-            this.canvas.height = this.canvas.offsetHeight;
-        }
+       resize() {
+  const ratio = window.devicePixelRatio || 1;
+  const w = this.canvas.clientWidth || this.canvas.offsetWidth;
+  const h = this.canvas.clientHeight || this.canvas.offsetHeight;
 
-        createThreads() {
-            const numThreads = Math.floor(this.canvas.width / 100);
-           
-            for (let i = 0; i < numThreads; i++) {
-                this.threads.push({
-                    x: (this.canvas.width / numThreads) * i,
-                    y: Math.random() * this.canvas.height,
-                    targetY: Math.random() * this.canvas.height,
-                    speed: 0.5 + Math.random() * 0.5,
-                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
-                    amplitude: 50 + Math.random() * 50,
-                    frequency: 0.01 + Math.random() * 0.02,
-                    phase: Math.random() * Math.PI * 2
-                });
+  // set canvas backing size for sharpness
+  this.canvas.width = Math.round(w * ratio);
+  this.canvas.height = Math.round(h * ratio);
+  this.ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+  // clear existing arrays before recreating to avoid duplicates
+  this.threads = [];
+  this.particles = [];
+
+  // create based on logical pixel size (adjust counts for small screens if desired)
+  this.createThreads();
+  this.createParticles();
+});
             }
         }
 
@@ -262,24 +263,23 @@
         }
 
         resize() {
-            this.canvas.width = this.canvas.offsetWidth;
-            this.canvas.height = this.canvas.offsetHeight;
-        }
+  const ratio = window.devicePixelRatio || 1;
+  const w = this.canvas.clientWidth || this.canvas.offsetWidth;
+  const h = this.canvas.clientHeight || this.canvas.offsetHeight;
 
-        createThreads() {
-            const numThreads = Math.floor(this.canvas.width / 100);
-           
-            for (let i = 0; i < numThreads; i++) {
-                this.threads.push({
-                    x: (this.canvas.width / numThreads) * i,
-                    y: Math.random() * this.canvas.height,
-                    targetY: Math.random() * this.canvas.height,
-                    speed: 0.5 + Math.random() * 0.5,
-                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
-                    amplitude: 50 + Math.random() * 50,
-                    frequency: 0.01 + Math.random() * 0.02,
-                    phase: Math.random() * Math.PI * 2
-                });
+  // set canvas backing size for sharpness
+  this.canvas.width = Math.round(w * ratio);
+  this.canvas.height = Math.round(h * ratio);
+  this.ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+  // clear existing arrays before recreating to avoid duplicates
+  this.threads = [];
+  this.particles = [];
+
+  // create based on logical pixel size (adjust counts for small screens if desired)
+  this.createThreads();
+  this.createParticles();
+});
             }
         }
 
