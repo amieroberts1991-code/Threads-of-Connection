@@ -757,7 +757,6 @@
     function init() {
         new MobileNavigation();
         new ThreadsCanvas();
-        new FooterCanvas(); // NEW: Footer canvas with different animation
         new ScrollAnimations();
         new FooterReveal();
         new SmoothScroll();

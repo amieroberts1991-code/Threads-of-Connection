@@ -1033,3 +1033,37 @@ z-index: 0;
   outline: 3px solid rgba(212,174,55,0.25);
   outline-offset: 3px;
 }
+/* Hero canvas kept visible and sized */
+#threads-canvas {
+  display: block !important;
+  visibility: visible !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Footer canvas removed (only footer) */
+#footer-canvas {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* shimmer between canvas and content */
+.hero-background .shimmer-overlay,
+.footer-background .shimmer-overlay {
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* hero content must be above shimmer */
+.hero-content { z-index: 2; }
+
+/* ensure hero background fills the hero area */
+.hero, .hero-background { min-height: 60vh; height: 60vh; }
